@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tarmarket Premium Theme */
+:root {
+  background-color: #FDF5E6; /* Old Lace / Light Cream */
+  color: #5C4033;           /* Deep Brown */
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
