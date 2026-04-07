@@ -126,10 +126,10 @@ const Home = () => {
           {/* COMPACT HERO */}
           <section className="py-12 md:py-20 px-6 text-center max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-6xl font-black mb-4 leading-tight tracking-tight">
-              AMPLIFY CONTENT. <br/> EARN REAL MONEY.
+              WHERE CREATOR AMPLIFY AND <br/> WORKER EARN REAL MONEY.
             </h2>
             <p className="text-tarmarket-clay text-base md:text-lg mb-6 max-w-xl mx-auto font-medium">
-              The professional bridge between creators seeking engagement and workers ready to earn.
+              The bridge between creators seeking real watch-hour,engagement and workers ready to earn from home.
             </p>
             <div className="flex flex-row justify-center gap-3">
               <button className="bg-tarmarket-umber text-white px-6 py-3 rounded-lg shadow-md font-bold text-sm">FOR CREATORS</button>
