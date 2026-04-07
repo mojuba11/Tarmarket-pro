@@ -4,7 +4,7 @@ const FeatureCards = () => {
   const features = [
     {
       title: "For Influencers",
-      desc: "Get real organic views, likes, and follows from verified human accounts. No bots, just growth.",
+      desc: "Get real organic watch-hour,views, likes, and follows from verified human accounts. No bots, just growth.",
       button: "Create Campaign",
       color: "#4A3728"
     },
