@@ -28,7 +28,7 @@ const Home = () => {
     /* Outer container keeps the background color full-width */
     <div className="bg-tarmarket-cream min-h-screen font-sans flex flex-col text-tarmarket-umber">
       
-      /* Inner wrapper limits the width on Desktop (max-w-7xl is ~1280px) */
+    
       <div className="max-w-[1440px] mx-auto w-full bg-white shadow-xl md:shadow-2xl lg:my-0">
         
         {/* 1. Navigation - Mobile Optimized */}
