@@ -15,7 +15,7 @@ const Home = () => {
       <main>
         <section className="py-20 px-10 text-center">
           <h2 className="text-5xl font-extrabold text-tarmarket-umber mb-6">
-            WHERE CREATOR AMPLIFY, AND WORKERS EARN.
+            WHERE CREATOR AMPLIFY AND WORKERS EARN.
           </h2>
           <p className="text-tarmarket-clay text-xl mb-10 max-w-2xl mx-auto">
             The all-in-one bridge between content creators looking for real watch-hour,engagement 
@@ -24,10 +24,10 @@ const Home = () => {
 
           <div className="flex flex-wrap justify-center gap-6">
             <button className="bg-tarmarket-umber text-white px-8 py-4 rounded-lg shadow-lg hover:opacity-90 transition">
-              Start Boosting (Influencers)
+              FOR INFLUENCERS
             </button>
             <button className="bg-tarmarket-tan text-tarmarket-umber px-8 py-4 rounded-lg border border-tarmarket-umber hover:bg-opacity-80 transition">
-              Start Earning (Workers)
+              FOR WORKERS(Workfromhome)
             </button>
           </div>
         </section>
