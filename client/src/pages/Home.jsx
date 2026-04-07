@@ -169,13 +169,13 @@ const Home = () => {
               </div>
               <div className="space-y-2 group">
                 <p className="text-5xl md:text-6xl font-black">
-                  <Counter endValue="200" suffix="k+" />
+                  <Counter endValue="200" suffix="+" />
                 </p>
                 <p className="text-tarmarket-clay font-bold text-sm tracking-widest uppercase">Verified Workers</p>
               </div>
               <div className="space-y-2 group">
                 <p className="text-5xl md:text-6xl font-black">
-                  ₦<Counter endValue="50000" suffix="M+" />
+                  ₦<Counter endValue="5" suffix="M+" />
                 </p>
                 <p className="text-tarmarket-clay font-bold text-sm tracking-widest uppercase">Total Payouts</p>
               </div>
