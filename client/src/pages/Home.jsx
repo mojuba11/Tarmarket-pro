@@ -82,7 +82,7 @@ const Home = () => {
       gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
       osc.connect(gain); gain.connect(audioCtx.destination);
       osc.start(); osc.stop(audioCtx.currentTime + 0.1);
-    } catch (e) { /* Audio fails silently if blocked */ }
+    } catch (e) { /* Audio fails silently */ }
   };
 
   const toggleFaq = (index) => {
@@ -96,10 +96,10 @@ const Home = () => {
       const randomAmount = (Math.floor(Math.random() * 15) + 5) * 500;
       setCurrentToast({ name: randomName, amount: randomAmount.toLocaleString() });
       setShowToast(true);
-      updateFavicon(true); // Add dot to tab
+      updateFavicon(true);
       setTimeout(() => {
         setShowToast(false);
-        updateFavicon(false); // Remove dot
+        updateFavicon(false);
       }, 4000);
     }, 8000);
     return () => clearInterval(interval);
@@ -127,6 +127,7 @@ const Home = () => {
       <div className="max-w-[1440px] mx-auto w-full bg-white shadow-xl md:shadow-2xl relative">
         <div className="absolute top-40 -left-20 w-96 h-96 bg-tarmarket-tan rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
 
+        {/* NAVIGATION */}
         <nav className="p-4 md:p-6 flex justify-between items-center border-b border-tarmarket-tan sticky top-0 bg-white/90 backdrop-blur-md z-50">
           <h1 className="text-xl md:text-2xl font-black tracking-tighter">TARMARKET</h1>
           <button className="text-sm md:text-base font-bold px-6 py-2 rounded-full bg-tarmarket-umber text-white hover:scale-105 active:scale-95 transition-all">
@@ -135,6 +136,7 @@ const Home = () => {
         </nav>
 
         <main className="flex-grow relative z-10">
+          {/* HERO SECTION */}
           <section className="py-16 md:py-32 px-6 text-center max-w-5xl mx-auto">
             <h2 className="text-5xl md:text-7xl font-black mb-6 leading-[1.05] tracking-tight">
               WHERE CREATORS AMPLIFY <br className="hidden md:block" /> AND WORKERS EARN.
@@ -158,7 +160,7 @@ const Home = () => {
             </div>
           </div>
 
-          {/* REAL-TIME STATS (Animated) */}
+          {/* REAL-TIME STATS */}
           <section className="py-16 md:py-24 bg-white border-b border-tarmarket-tan/30">
             <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
               <div className="space-y-2 group">
@@ -169,46 +171,118 @@ const Home = () => {
               </div>
               <div className="space-y-2 group">
                 <p className="text-5xl md:text-6xl font-black">
-                  <Counter endValue="200" suffix="+" />
+                  <Counter endValue="12000" suffix="+" />
                 </p>
                 <p className="text-tarmarket-clay font-bold text-sm tracking-widest uppercase">Verified Workers</p>
               </div>
               <div className="space-y-2 group">
                 <p className="text-5xl md:text-6xl font-black">
-                  ₦<Counter endValue="5" suffix="M+" />
+                  ₦<Counter endValue="10" suffix="M+" />
                 </p>
                 <p className="text-tarmarket-clay font-bold text-sm tracking-widest uppercase">Total Payouts</p>
               </div>
             </div>
           </section>
 
-          {/* EARNINGS CALCULATOR (with Sound) */}
-          <section className="py-20 px-6">
-            <div className="max-w-3xl mx-auto bg-tarmarket-cream border border-tarmarket-tan p-8 md:p-12 rounded-[3rem] shadow-sm text-center">
-              <h3 className="text-2xl md:text-4xl font-black mb-4">What could you earn?</h3>
-              <p className="text-tarmarket-clay mb-8 font-medium">Drag the slider to see your potential monthly income</p>
-              <input 
-                type="range" min="5" max="100" value={tasksPerDay} 
-                onChange={(e) => {
-                  setTasksPerDay(e.target.value);
-                  playSliderSound();
-                }}
-                className="w-full h-3 bg-tarmarket-tan rounded-lg appearance-none cursor-pointer accent-tarmarket-umber mb-6"
-              />
-              <div className="flex justify-between font-bold text-sm text-tarmarket-clay mb-10">
-                <span>{tasksPerDay} Tasks/Day</span>
-                <span>Rate: ₦50/Task</span>
-              </div>
-              <div className="py-6 border-t border-tarmarket-tan/50">
-                <p className="text-5xl md:text-7xl font-black text-tarmarket-umber">
-                  ₦{ (tasksPerDay * 50 * 30).toLocaleString() }
-                </p>
-                <p className="text-xs font-black uppercase tracking-widest mt-2 opacity-50">Estimated Monthly Earnings</p>
+          {/* DYNAMIC TWO-COLUMN EARNINGS CALCULATOR */}
+          <section className="py-24 px-6 bg-white">
+            <div className="max-w-6xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-tarmarket-cream/30 p-8 md:p-16 rounded-[4rem] border border-tarmarket-tan/50 shadow-sm">
+                
+                {/* Column 1: Controls */}
+                <div className="space-y-8">
+                  <div>
+                    <h3 className="text-4xl md:text-5xl font-black mb-4 leading-tight text-tarmarket-umber">
+                      Turn your spare time into <span className="text-tarmarket-clay">real cash.</span>
+                    </h3>
+                    <p className="text-lg text-tarmarket-clay font-medium max-w-md">
+                      Adjust the slider to see your potential monthly income. The more you engage, the more you grow.
+                    </p>
+                  </div>
+
+                  <div className="bg-white p-8 rounded-3xl shadow-sm border border-tarmarket-tan/40">
+                    <div className="flex justify-between mb-6 items-end">
+                      <span className="text-xs font-black uppercase tracking-widest text-tarmarket-clay">Daily Task Goal</span>
+                      <span className="text-2xl font-black text-tarmarket-umber">{tasksPerDay} Tasks</span>
+                    </div>
+                    
+                    <input 
+                      type="range" min="5" max="100" step="5" value={tasksPerDay} 
+                      onChange={(e) => {
+                        setTasksPerDay(e.target.value);
+                        playSliderSound();
+                      }}
+                      className="w-full h-3 bg-tarmarket-tan rounded-lg appearance-none cursor-pointer accent-tarmarket-umber mb-4"
+                    />
+                    
+                    <div className="flex justify-between text-[10px] font-bold text-tarmarket-clay/50 uppercase tracking-tighter">
+                      <span>Starter (5)</span>
+                      <span>Active (50)</span>
+                      <span>Pro (100)</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-4 p-4 bg-tarmarket-umber/5 rounded-2xl border border-tarmarket-umber/10">
+                    <div className="w-10 h-10 bg-tarmarket-umber rounded-full flex items-center justify-center text-white font-bold shrink-0">₦</div>
+                    <p className="text-sm font-medium text-tarmarket-umber/80 leading-snug">
+                      Average payout is <strong>₦50 per task</strong>. Top workers complete their daily goals in under 45 minutes.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Column 2: Visual Wallet Preview */}
+                <div className="relative">
+                  {/* Backdrop Glow */}
+                  <div className="absolute inset-0 bg-tarmarket-tan blur-3xl opacity-20 rounded-full scale-75"></div>
+                  
+                  <div className="relative bg-tarmarket-umber p-8 md:p-12 rounded-[3rem] shadow-2xl text-white transform hover:-translate-y-2 transition-transform duration-500 overflow-hidden">
+                    {/* Decorative Card Pattern */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16"></div>
+                    
+                    <div className="flex justify-between items-start mb-12">
+                      <div>
+                        <p className="text-xs font-bold opacity-60 uppercase tracking-widest mb-1">Estimated Monthly Wallet</p>
+                        <h4 className="text-5xl md:text-6xl font-black tracking-tighter">
+                          ₦{(tasksPerDay * 50 * 30).toLocaleString()}
+                        </h4>
+                      </div>
+                      <div className="bg-white/10 p-3 rounded-2xl backdrop-blur-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center py-4 border-t border-white/10 text-sm font-medium">
+                        <span className="opacity-60">Status</span>
+                        <span className="flex items-center gap-2">
+                          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                          Ready to Withdraw
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center py-4 border-t border-white/10 text-sm font-medium">
+                        <span className="opacity-60">Payout Frequency</span>
+                        <span>Weekly / Instant</span>
+                      </div>
+                    </div>
+
+                    <button className="w-full mt-8 bg-tarmarket-tan text-tarmarket-umber py-4 rounded-2xl font-black uppercase tracking-widest hover:bg-white transition-all active:scale-95 shadow-lg">
+                      Start Earning Now
+                    </button>
+                  </div>
+
+                  {/* Trust Badge */}
+                  <div className="absolute -bottom-6 right-8 bg-white py-3 px-6 rounded-2xl shadow-xl border border-tarmarket-tan hidden md:flex items-center gap-2">
+                    <span className="text-green-600 text-lg">✓</span>
+                    <p className="text-tarmarket-umber font-black text-xs uppercase tracking-tight">Verified Bank Transfers</p>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
 
-          {/* ... Rest of the sections (How It Works, FeatureCards, FAQ, Footer) exactly as your working version ... */}
+          {/* HOW IT WORKS */}
           <section className="py-20 md:py-32 px-6 bg-tarmarket-cream/30">
             <div className="max-w-4xl mx-auto text-center mb-16">
               <h3 className="text-3xl md:text-5xl font-black mb-4">How It Works</h3>
@@ -231,6 +305,7 @@ const Home = () => {
 
           <FeatureCards />
 
+          {/* FAQ SECTION */}
           <section className="py-24 px-6 bg-tarmarket-cream">
             <div className="max-w-3xl mx-auto">
               <h3 className="text-3xl md:text-4xl font-black text-center mb-12">Common Questions</h3>
@@ -250,6 +325,7 @@ const Home = () => {
             </div>
           </section>
 
+          {/* FINAL CTA */}
           <section className="py-20 md:py-32 px-6 text-center bg-tarmarket-umber text-white relative">
             <div className="relative z-10">
               <h3 className="text-4xl md:text-6xl font-black mb-8 leading-tight">Ready to take the next step?</h3>
@@ -265,12 +341,12 @@ const Home = () => {
               <p className="text-tarmarket-clay text-sm font-medium">Empowering the Nigerian digital economy through authentic engagement and local opportunities.</p>
             </div>
             <div className="flex flex-col gap-2 font-bold text-sm">
-              <a href="#" className="hover:text-tarmarket-clay">Terms of Service</a>
-              <a href="#" className="hover:text-tarmarket-clay">Privacy Policy</a>
+              <a href="#" className="hover:text-tarmarket-clay transition-colors">Terms of Service</a>
+              <a href="#" className="hover:text-tarmarket-clay transition-colors">Privacy Policy</a>
             </div>
             <div className="flex flex-col gap-2 font-bold text-sm">
-              <a href="#" className="hover:text-tarmarket-clay">Twitter / X</a>
-              <a href="#" className="hover:text-tarmarket-clay">WhatsApp Support</a>
+              <a href="#" className="hover:text-tarmarket-clay transition-colors">Twitter / X</a>
+              <a href="#" className="hover:text-tarmarket-clay transition-colors">WhatsApp Support</a>
             </div>
           </div>
           <p className="text-tarmarket-clay text-[10px] md:text-xs tracking-[0.2em] font-black uppercase border-t border-tarmarket-tan pt-8">
