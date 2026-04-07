@@ -27,7 +27,7 @@ const Home = () => {
               FOR INFLUENCERS
             </button>
             <button className="bg-tarmarket-tan text-tarmarket-umber px-8 py-4 rounded-lg border border-tarmarket-umber hover:bg-opacity-80 transition">
-              FOR WORKERS(Workfromhome)
+              FOR WORKERS
             </button>
           </div>
         </section>
