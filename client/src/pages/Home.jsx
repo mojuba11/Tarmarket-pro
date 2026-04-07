@@ -163,19 +163,19 @@ const Home = () => {
             <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
               <div className="space-y-2 group">
                 <p className="text-5xl md:text-6xl font-black group-hover:text-tarmarket-clay transition-colors">
-                  <Counter endValue="50000" suffix="k+" />
+                  <Counter endValue="5000" suffix="k+" />
                 </p>
                 <p className="text-tarmarket-clay font-bold text-sm tracking-widest uppercase">Watch Hours Delivered</p>
               </div>
               <div className="space-y-2 group">
                 <p className="text-5xl md:text-6xl font-black">
-                  <Counter endValue="12000" suffix="k+" />
+                  <Counter endValue="200" suffix="k+" />
                 </p>
                 <p className="text-tarmarket-clay font-bold text-sm tracking-widest uppercase">Verified Workers</p>
               </div>
               <div className="space-y-2 group">
                 <p className="text-5xl md:text-6xl font-black">
-                  ₦<Counter endValue="10000000" suffix="M+" />
+                  ₦<Counter endValue="50000" suffix="M+" />
                 </p>
                 <p className="text-tarmarket-clay font-bold text-sm tracking-widest uppercase">Total Payouts</p>
               </div>
