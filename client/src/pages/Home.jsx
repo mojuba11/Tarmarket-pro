@@ -262,7 +262,7 @@ const Home = () => {
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left mb-16">
             <div>
               <h4 className="font-black text-2xl mb-4 tracking-tighter">TARMARKET</h4>
-              <p className="text-tarmarket-clay text-sm font-medium">Empowering the Nigerian digital economy.</p>
+              <p className="text-tarmarket-clay text-sm font-medium">Empowering the Nigerian digital economy through authentic engagement and local opportunities.</p>
             </div>
             <div className="flex flex-col gap-2 font-bold text-sm">
               <a href="#" className="hover:text-tarmarket-clay">Terms of Service</a>
