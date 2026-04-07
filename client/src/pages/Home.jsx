@@ -15,10 +15,10 @@ const Home = () => {
       <main>
         <section className="py-20 px-10 text-center">
           <h2 className="text-5xl font-extrabold text-tarmarket-umber mb-6">
-            Amplify Content. Empower Earners.
+            WHERE CREATOR AMPLIFY, AND WORKERS EARN.
           </h2>
           <p className="text-tarmarket-clay text-xl mb-10 max-w-2xl mx-auto">
-            The all-in-one bridge between content creators looking for real engagement 
+            The all-in-one bridge between content creators looking for real watch-hour,engagement 
             and workers ready to earn from home.
           </p>
 
