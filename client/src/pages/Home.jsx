@@ -4,7 +4,7 @@ import FeatureCards from '../components/FeatureCards';
 
 const Home = () => {
   return (
-    <div className="bg-tarmarket-cream min-h-screen font-sans">
+    <div className="bg-tarmarket-cream min-h-screen font-sans flex flex-col">
       {/* Navigation */}
       <nav className="p-6 flex justify-between items-center border-b border-tarmarket-tan">
         <h1 className="text-2xl font-bold text-tarmarket-umber">TARMARKET</h1>
@@ -12,13 +12,13 @@ const Home = () => {
       </nav>
 
       {/* Main Content */}
-      <main>
+      <main className="flex-grow">
         <section className="py-20 px-10 text-center">
           <h2 className="text-5xl font-extrabold text-tarmarket-umber mb-6">
             WHERE CREATOR AMPLIFY AND WORKERS EARN.
           </h2>
           <p className="text-tarmarket-clay text-xl mb-10 max-w-2xl mx-auto">
-            The all-in-one bridge between content creators looking for real watch-hour,engagement 
+            The all-in-one bridge between content creators looking for real watch-hour, engagement 
             and workers ready to earn from home.
           </p>
 
@@ -35,6 +35,13 @@ const Home = () => {
         {/* This will now render the cards correctly */}
         <FeatureCards />
       </main>
+
+      {/* Footer Section */}
+      <footer className="py-8 border-t border-tarmarket-tan text-center">
+        <p className="text-tarmarket-clay text-sm">
+          &copy; {new Date().getFullYear()} Target Multiconcepts Venture. All rights reserved.
+        </p>
+      </footer>
     </div>
   );
 };
