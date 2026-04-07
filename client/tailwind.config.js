@@ -1,18 +1,24 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+module.exports = {
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        tarmarket: {
-          cream: '#FAF9F6',   // Background
-          tan: '#D2B48C',     // Accents/Cards
-          umber: '#4A3728',   // Text/Primary Buttons
-          sand: '#F4A460',    // Wallet/Highlight
-          clay: '#8B735B',    // Muted text
-        }
+        'tarmarket-cream': '#F9F7F2',
+        'tarmarket-tan': '#E5E0D5',
+        'tarmarket-umber': '#2D2926',
+        'tarmarket-clay': '#5D5954',
+      },
+      animation: {
+        'marquee': 'marquee 25s linear infinite',
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
       },
     },
   },
   plugins: [],
-}
+};
